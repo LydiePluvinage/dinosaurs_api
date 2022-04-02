@@ -1,7 +1,8 @@
 import express from 'express';
 import setupRoutes from './router';
-const { handleError } = require('./helpers/errors');
-require('dotenv').config();
+import { handleError } from './helpers/errors';
+import connection from './db-config.js';
+import 'dotenv/config';
 
 const server = express();
 const PORT = process.env.PORT || 3000;
@@ -15,7 +16,11 @@ setupRoutes(server);
 // Error managment
 server.use(handleError);
 
-server.get('/coucou', (req, res) => res.send('hibou'));
+server.get('/', (req, res) => {
+  connection
+    .query('SELECT * FROM diets')
+    .then((data) => res.status(200).json(data.rows));
+});
 
 server.listen(PORT, () => {
   console.log('Server running at http://127.0.0.1:' + PORT);

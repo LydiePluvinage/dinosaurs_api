@@ -1,0 +1,30 @@
+{
+  "name": "dinosaurs_api",
+  "version": "1.0.0",
+  "description": "Voici l'api dinosaures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LydiePluvinage/dinosaurs_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LydiePluvinage/dinosaurs_api/issues"
+  },
+  "homepage": "https://github.com/LydiePluvinage/dinosaurs_api#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

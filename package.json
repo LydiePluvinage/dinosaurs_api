@@ -4,7 +4,10 @@
   "description": "Voici l'api dinosaures",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "ts": "tsc -w",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint \"./src/**/*.js\" --fix"
   },
   "repository": {
     "type": "git",
@@ -16,15 +19,36 @@
     "url": "https://github.com/LydiePluvinage/dinosaurs_api/issues"
   },
   "homepage": "https://github.com/LydiePluvinage/dinosaurs_api#readme",
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ]
+    }
+  },
   "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "@types/pg": "^8.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
     "dotenv": "^16.0.0",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.15",
-    "prettier": "^2.6.1"
+    "prettier": "^2.6.1",
+    "typescript": "^4.6.3"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "pg": "^8.7.3"
   }
 }

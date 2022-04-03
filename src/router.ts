@@ -13,6 +13,10 @@ const setupRoutes = (server: express.Application) => {
 
   //eras
   server.get('/eras', erasController.getAll);
+
+  //dinos
+  server.get('/dinos', dinosController.getAll);
+  server.get('/dinos/:idDino', dinosController.getOne);
 };
 
 export default setupRoutes;

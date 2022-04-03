@@ -10,6 +10,9 @@ const setupRoutes = (server: express.Application) => {
 
   //locations
   server.get('/locations', locationsController.getAll);
+
+  //eras
+  server.get('/eras', erasController.getAll);
 };
 
 export default setupRoutes;

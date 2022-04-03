@@ -5,7 +5,8 @@ import locationsController from './controllers/locations';
 import erasController from './controllers/eras';
 
 const setupRoutes = (server: express.Application) => {
-  //   server.get('/dinos', dinosController.getAll);
+  //diets
+  server.get('/diets', dietsController.getAll);
 };
 
 export default setupRoutes;

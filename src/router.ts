@@ -6,18 +6,24 @@ import erasController from './controllers/eras';
 
 const setupRoutes = (server: express.Application) => {
   //diets
-  server.get('/diets', dietsController.getAll);
+  server.get('/v1/diets', dietsController.getAll);
 
   //locations
-  server.get('/locations', locationsController.getAll);
+  server.get('/v1/locations', locationsController.getAll);
 
   //eras
-  server.get('/eras', erasController.getAll);
+  server.get('/v1/eras', erasController.getAll);
 
   //dinos
+<<<<<<< Updated upstream
   server.get('/dinos', dinosController.getAll);
   server.get('/dinos/:idDino', dinosController.getOne);
   server.get('/dinos/random', dinosController.getRandom);
+=======
+  server.get('/v1/dinos/random', dinosController.getRandom);
+  server.get('/v1/dinos/:idDino', dinosController.getOne);
+  server.get('/v1/dinos', dinosController.getAll);
+>>>>>>> Stashed changes
 };
 
 export default setupRoutes;

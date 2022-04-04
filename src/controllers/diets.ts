@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import dietModel from '../models/diet';
-import { ErrorHandler } from '../helpers/errors';
 
 // gets all diets information
 async function getAll(

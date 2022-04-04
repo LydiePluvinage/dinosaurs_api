@@ -37,5 +37,20 @@ async function getOne(
     next(err);
   }
 }
+// gets one random dino information
+async function getRandom(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    // gets dino
+    const dinos = await dinoModel.getAll();
+    const dinoRandom = Math.floor(Math.random() * dinos.length) + 1;
+    res.status(200).json(dinos[dinoRandom]);
+  } catch (err) {
+    next(err);
+  }
+}
 
-export default { getAll, getOne };
+export default { getAll, getOne, getRandom };

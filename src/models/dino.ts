@@ -10,42 +10,44 @@ interface IFilter {
 }
 
 // gets all dinos
-async function getAll(filters: IFilter): Promise<IDino[]> {
+async function getAll(filters?: IFilter): Promise<IDino[]> {
   let sql: string = 'SELECT * FROM "dinos"';
   let sqlValues: Array<string | number> = [];
   let values: number = 1;
 
-  if (filters.diet) {
-    sql += ` WHERE "idDiet" = $${values}`;
-    values++;
-    sqlValues.push(filters.diet);
-  }
-  if (filters.era) {
-    if (values === 1) {
-      sql += ` WHERE "idEra" = $${values}`;
-    } else {
-      sql += ` AND "idEra" = $${values}`;
+  if (filters) {
+    if (filters.diet) {
+      sql += ` WHERE "idDiet" = $${values}`;
+      values++;
+      sqlValues.push(filters.diet);
     }
-    values++;
-    sqlValues.push(filters.era);
-  }
-  if (filters.location) {
-    if (values === 1) {
-      sql += ` WHERE "idLocation" = $${values}`;
-    } else {
-      sql += ` AND "idLocation" = $${values}`;
+    if (filters.era) {
+      if (values === 1) {
+        sql += ` WHERE "idEra" = $${values}`;
+      } else {
+        sql += ` AND "idEra" = $${values}`;
+      }
+      values++;
+      sqlValues.push(filters.era);
     }
-    values++;
-    sqlValues.push(filters.location);
-  }
-  if (filters.name) {
-    if (values === 1) {
-      sql += ` WHERE LOWER("name") LIKE $${values}`;
-    } else {
-      sql += ` AND LOWER("name") LIKE $${values}`;
+    if (filters.location) {
+      if (values === 1) {
+        sql += ` WHERE "idLocation" = $${values}`;
+      } else {
+        sql += ` AND "idLocation" = $${values}`;
+      }
+      values++;
+      sqlValues.push(filters.location);
     }
-    values++;
-    sqlValues.push('%' + filters.name.toLowerCase() + '%');
+    if (filters.name) {
+      if (values === 1) {
+        sql += ` WHERE LOWER("name") LIKE $${values}`;
+      } else {
+        sql += ` AND LOWER("name") LIKE $${values}`;
+      }
+      values++;
+      sqlValues.push('%' + filters.name.toLowerCase() + '%');
+    }
   }
 
   const results: QueryResult = await connection.query(sql, sqlValues);

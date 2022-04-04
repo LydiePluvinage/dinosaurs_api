@@ -17,6 +17,7 @@ const setupRoutes = (server: express.Application) => {
   //dinos
   server.get('/dinos', dinosController.getAll);
   server.get('/dinos/:idDino', dinosController.getOne);
+  server.get('/dinos/random', dinosController.getRandom);
 };
 
 export default setupRoutes;

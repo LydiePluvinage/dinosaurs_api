@@ -15,9 +15,9 @@ const setupRoutes = (server: express.Application) => {
   server.get('/eras', erasController.getAll);
 
   //dinos
-  server.get('/dinos', dinosController.getAll);
-  server.get('/dinos/:idDino', dinosController.getOne);
   server.get('/dinos/random', dinosController.getRandom);
+  server.get('/dinos/:idDino', dinosController.getOne);
+  server.get('/dinos', dinosController.getAll);
 };
 
 export default setupRoutes;

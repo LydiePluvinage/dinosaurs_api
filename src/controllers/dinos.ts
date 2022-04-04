@@ -45,7 +45,9 @@ async function getRandom(
 ): Promise<void> {
   try {
     // gets dino
+
     const dinos = await dinoModel.getAll();
+
     const dinoRandom = Math.floor(Math.random() * dinos.length) + 1;
     res.status(200).json(dinos[dinoRandom]);
   } catch (err) {

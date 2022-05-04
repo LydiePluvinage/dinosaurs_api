@@ -7,7 +7,8 @@
     "start": "node src/index.js",
     "ts": "tsc -w",
     "dev": "nodemon src/index.js",
-    "lint": "eslint \"./src/**/*.js\" --fix"
+    "lint": "eslint \"./src/**/*.js\" --fix",
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.23",
     "@types/pg": "^8.6.5",

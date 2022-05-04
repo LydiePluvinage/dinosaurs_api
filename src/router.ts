@@ -15,15 +15,10 @@ const setupRoutes = (server: express.Application) => {
   server.get('/v1/eras', erasController.getAll);
 
   //dinos
-<<<<<<< Updated upstream
-  server.get('/dinos', dinosController.getAll);
-  server.get('/dinos/:idDino', dinosController.getOne);
-  server.get('/dinos/random', dinosController.getRandom);
-=======
   server.get('/v1/dinos/random', dinosController.getRandom);
   server.get('/v1/dinos/:idDino', dinosController.getOne);
   server.get('/v1/dinos', dinosController.getAll);
->>>>>>> Stashed changes
+  // server.post('/dinos', userController.checkAuthorization, dinosController.addOne)
 };
 
 export default setupRoutes;

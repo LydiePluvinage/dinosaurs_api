@@ -63,7 +63,7 @@ async function getAll(filters?: IFilter): Promise<IDino[]> {
       if (values === 1) {
         sql += `WHERE "maxWeight" <= $${values} `;
       } else {
-        sql += ` AND "maxWeight <= $${values}`;
+        sql += ` AND "maxWeight" <= $${values}`;
       }
       values++;
       sqlValues.push(filters.weight);

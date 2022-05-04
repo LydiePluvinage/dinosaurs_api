@@ -13,9 +13,18 @@ async function getAll(
     const era: number | undefined = Number(req.query.era);
     const location: number | undefined = Number(req.query.location);
     const name: string | undefined = req.query.name?.toString();
+    const size: number | undefined = Number(req.query.size);
+    const weight: number | undefined = Number(req.query.weight);
 
     // gets dinos list
-    const dinos = await dinoModel.getAll({ diet, era, location, name });
+    const dinos = await dinoModel.getAll({
+      diet,
+      era,
+      location,
+      name,
+      size,
+      weight,
+    });
     res.status(200).json(dinos);
   } catch (err) {
     next(err);

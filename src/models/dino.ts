@@ -7,6 +7,8 @@ interface IFilter {
   era: number | undefined;
   location: number | undefined;
   name: string | undefined;
+  size: number | undefined;
+  weight: number | undefined;
 }
 
 // gets all dinos
@@ -47,6 +49,24 @@ async function getAll(filters?: IFilter): Promise<IDino[]> {
       }
       values++;
       sqlValues.push('%' + filters.name.toLowerCase() + '%');
+    }
+    if (filters.size) {
+      if (values === 1) {
+        sql += `WHERE "maxSize" <= $${values}`;
+      } else {
+        sql += ` AND "maxSize" <= $${values}`;
+      }
+      values++;
+      sqlValues.push(filters.size);
+    }
+    if (filters.weight) {
+      if (values === 1) {
+        sql += `WHERE "maxWeight" <= $${values} `;
+      } else {
+        sql += ` AND "maxWeight" <= $${values}`;
+      }
+      values++;
+      sqlValues.push(filters.weight);
     }
   }
 

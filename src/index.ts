@@ -1,8 +1,7 @@
 import express from 'express';
-import cors from 'cors';
 import setupRoutes from './router';
 import { handleError } from './helpers/errors';
-import cors from "cors";
+import cors from 'cors';
 import 'dotenv/config';
 
 const server: express.Application = express();
@@ -21,7 +20,7 @@ server.use(express.json());
 // utilise le package cors pour autoriser les appels extérieurs
 server.use(
   cors({
-    origin: "*",
+    origin: '*',
   })
 );
 
